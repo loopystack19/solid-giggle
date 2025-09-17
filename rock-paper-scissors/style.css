@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    width: 800px;
+    margin: 0px auto;
+    border: 0.1px solid black;
+    border-radius: 10px;
+}
+.container h2{
+    text-align: center;
+    text-transform: capitalize;
+    margin: 0.5rem 0;
+}
+.game-container h3{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+}
+.button-container{
+    width: 90%;
+    margin: 1rem auto;
+    border: 0.1px solid green;
+    padding: 3rem 0;
+    text-align: center;
+    border-radius: 25px;
+}
+.button-container button{
+    width: 200px;
+    height: 65px;
+    border-radius: 8px;
+    border: none;
+    margin-inline: 0.5rem;
+    cursor: pointer;
+}
+#playGame{
+    width: 300px;
+    height: 55px;
+    border: none;
+    border-radius: 8px;
+    background-color: green;
+    color: white;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    margin: 1.5rem 250px;
+    cursor: pointer;
+}
+.results-container{
+    width: 90%;
+    margin: 1rem auto;
+    border: 0.1px solid green;
+    padding: 2rem 0;
+    text-align: center;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    display: none;
+}
+.choice-container{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.final-results p{
+    font-weight: bold;
+}
+.selected{
+    background-color: rgba(34, 86, 200, 0.853);
+    color: white;
+}

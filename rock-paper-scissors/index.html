@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>A simple rock, papper , scissors game</h2>
+      <div class="game-container">
+        <h3>
+          Choose between rock, paper and scissors by clicking on the option you
+          want
+        </h3>
+        <div class="button-container">
+          <button id="rock" onclick="isRock()">Rock 🪨</button>
+          <button id="paper" onclick="isPaper()">Paper 📃</button>
+          <button id="scissors"onclick="isScissors()">scissors ✂️</button>
+        </div>
+      </div>
+      <button id="playGame" onclick="gameIsOn()">shoot</button>
+      <div class="results-container">
+        <div class="choice-container">
+          <p id="playerChoiceDisplay">Player choice: ✂️</p>
+          <p id="computerChoiceDisplay">computer choice:🪨</p>
+        </div>
+        <div class="final-results">
+            <p id="resultsText">Results: You loose 😭</p>
+            <br>
+        <p id="playerScore">Player score:0</p>
+        <br>
+        <p id="computerScore">computer score:0</p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
