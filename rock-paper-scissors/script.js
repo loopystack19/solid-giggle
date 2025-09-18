@@ -116,7 +116,7 @@ function gameIsOn(){
       } else if (computerChoice === "paper") {
         resultsText.textContent = "Results:You win 🥳";
         playerScore++;
-        playerChoiceDisplay.textContent = `player score: ${playerScore}`;
+        playerScoreDisplay.textContent = `player score: ${playerScore}`;
       } else {
         resultsText.textContent = "Results:Its a draw ";
       }
@@ -129,7 +129,7 @@ function gameIsOn(){
       } else if (computerChoice === "scissors") {
         resultsText.textContent = "Results:You win 🥳";
         playerScore++;
-        playerChoiceDisplay.textContent = `player score: ${playerScore}`;
+        playerScoreDisplay.textContent = `player score: ${playerScore}`;
       } else {
         resultsText.textContent = "Results:Its a draw ";
       }
