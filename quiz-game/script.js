@@ -35,95 +35,104 @@ const possibleQuestions = [
   },
 ];
 
-
 const questionContainer=document.getElementById("questionContainer");
 
 const answerContainer=document.getElementById("answerContainer");
+
+let startGameBtn=document.getElementById("startGame");
+
+let openingParagraph=document.getElementById("openingParagraph");
 
 let currentQuestionIndex=0;
 
 let score=0;
 
+function startGame() {
+
+    updateDisplay();
+
+    startGameBtn.style.display="none";
+
+    openingParagraph.style.display="none";
+
+}
+
 function updateDisplay(){
-
-  questionContainer.innerHTML="";
-
-  answerContainer.innerHTML="";
-
-
-  let currentAnswer=possibleQuestions[currentQuestionIndex].answer;
 
   let currentQuestion=possibleQuestions[currentQuestionIndex].question;
 
   const questionParagraph=document.createElement("p");
 
-  questionParagraph.textContent=currentQuestion;
 
+  questionParagraph.textContent=currentQuestion;
 
   questionContainer.append(questionParagraph);
 
-  let possibleCurrentAnswers=possibleQuestions[currentQuestionIndex].possibleAnswers;
+  let currentPossibleAnswers=possibleQuestions[currentQuestionIndex].possibleAnswers;
 
-  possibleCurrentAnswers.forEach(possibleAnswer=>{
+  let currentAnswer=possibleQuestions[currentQuestionIndex].answer;
 
-    const button=document.createElement("button");
+  currentPossibleAnswers.forEach(possibleAnswer=>{
 
-    button.textContent=possibleAnswer;
+    const buttons=document.createElement("button");
 
-    answerContainer.append(button);
+     buttons.textContent=possibleAnswer;
 
-    button.addEventListener("click", (event)=>{
+     answerContainer.append(buttons);
 
+     buttons.addEventListener("click", (event)=>{
 
       if(event.target.textContent === currentAnswer){
 
         event.target.classList.add("correct");
 
         score++;
-
-        console.log(score);
-
       }else{
 
         event.target.classList.add("wrong");
-
       }
 
       Array.from(answerContainer.querySelectorAll("button")).forEach(btn=>{
         btn.disabled=true;
       });
 
-      showNextButton();
+      if(currentQuestionIndex < possibleQuestions.length){
 
-    })
+        const nextButton=document.createElement("button");
+
+        nextButton.textContent="Next Question";
+
+        nextButton.id="next-question";
+
+        answerContainer.append(nextButton);
+
+        nextButton.onclick=showNextButton;
+
+      }
+     })
   })
 }
 
 function showNextButton(){
 
-  const nextBtn=document.createElement("button");
+  if(currentQuestionIndex < possibleQuestions.length - 1){
 
-  nextBtn.textContent="Next Question";
+    questionContainer.innerHTML="";
 
-  nextBtn.classList.add("next-button");
-
-  answerContainer.append(nextBtn)
-
-  nextBtn.addEventListener("click",()=>{
+    answerContainer.innerHTML="";
 
     currentQuestionIndex++;
 
-    if(currentQuestionIndex < possibleQuestions.length){
+    updateDisplay();
+  }else{
 
-      updateDisplay();
-    }else{
+    questionContainer.innerHTML="";
 
-      questionContainer.innerHTML="<p>You finished the Quiz </P>";
+    answerContainer.innerHTML="";
 
-      answerContainer.innerHTML=`<p>You scored: ${score}</p>`;
-    }
-  })
+    openingParagraph.style.display="block";
+
+    openingParagraph.textContent=`You score is : ${score}`;
+
+  }
 }
-
-
-updateDisplay();
